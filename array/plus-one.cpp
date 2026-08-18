@@ -2,13 +2,17 @@ class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
         int n = digits.size();
-        for(int i=0;i<n;i++){
-            if(digits[i] == digits[n] ){
-                digits[n]++;
+        int i=n-1;
+        while(i>=0){
+            if(digits[i]<9){
+                digits[i]+=1;
                 return digits;
             }
-            return digits;
+            digits[i]=0;
+            i--;
         }
-        return {};
+        digits.insert(begin(digits),1);
+        return digits;
+        
     }
 };
